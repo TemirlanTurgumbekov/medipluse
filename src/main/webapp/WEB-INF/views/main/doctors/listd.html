@@ -1,0 +1,47 @@
+<section class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mb-4 mb-sm-5">
+        <div class="card card-style1 border-0">
+          <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+            <div class="row align-items-center">
+              <div class="col-lg-6 mb-4 mb-lg-0">
+                <img th:src="@{/img/doctors/{imageName}(imageName=${doctor.avatar})}" alt="...">
+              </div>
+              <div class="col-lg-6 px-xl-10">
+                <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+                  <h3 class="h2 text-white mb-0" th:text="${doctor.firstName + ' ' + doctor.lastName}">John mark Doe Kyzer</h3>
+                  <span class="text-primary" th:text="${doctor.specialty}">Coach</span>
+                </div>
+                <ul class="list-unstyled mb-1-9">
+                  <li class="mb-2 mb-xl-3 display-28" th:text="${doctor.specialty}"><span class="display-26 text-secondary me-2 font-weight-600">Специальность:</span> Coach</li>
+                  <li class="mb-2 mb-xl-3 display-28" th:text="${doctor.experience}"><span class="display-26 text-secondary me-2 font-weight-600">Стаж работы:</span> 10 Years</li>
+                  <li class="mb-2 mb-xl-3 display-28" th:text="${doctor.email}"><span class="display-26 text-secondary me-2 font-weight-600">Email:</span> edith@mail.com</li>
+                  <li class="mb-2 mb-xl-3 display-28" th:text="${doctor.address}"><span class="display-26 text-secondary me-2 font-weight-600">Адрес:</span> www.example.com</li>
+                  <li class="mb-2 mb-xl-3 display-28" th:text="${doctor.education}"><span class="display-26 text-secondary me-2 font-weight-600">Образование:</span> www.example.com</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 mb-4 mb-sm-5">
+        <div>
+          <span class="section-title text-primary mb-3 mb-sm-4">О враче</span>
+          <p th:text="${doctor.characteristics}">text</p>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-12 mb-4 mb-sm-5">
+            <div class="mb-4 mb-sm-5">
+              <span class="section-title text-primary mb-3 mb-sm-4">Публикации</span>
+              <p th:text="${doctor.publications}">text</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

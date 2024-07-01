@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Sidebar 01</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet">
+    <!-- Style -->
+    <link rel="stylesheet" href="/css/worker//style.css">
+</head>
+<body>
+
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+        <div class="p-4 pt-5">
+            <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(/img/doctors/logo.jpg);"></a>
+            <ul class="list-unstyled components mb-5">
+                <li>
+                    <a href="/worker/edit">Профиль</a>
+                </li>
+                <li>
+                    <a href="/worker">Расписание</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Пациенты</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="/worker/patient/new">Добавить пациента</a>
+                        </li>
+                        <li>
+                            <a href="/worker/patient/list">Посмотреть всех</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#blog" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Блог</a>
+                    <ul class="collapse list-unstyled" id="blog">
+                        <li>
+                            <a href="/worker/blog/new">Добавить статью</a>
+                        </li>
+                        <li>
+                            <a href="/worker/blog/list">Список статей</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/worker/login">Завершить сеанс</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Toggle Menu</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Статус:</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link1" href="#">Сотрудник  |  </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary" href="/worker/patient/new">Добавить пациента</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <h1>Список статей</h1>
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Заголовок статьи</th>
+                    <th scope="col">Дата публикации</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="blogpost : ${blogposts}">
+                    <th scope="row" th:text="${blogpost.id}">id</th>
+                    <td>
+                        <a th:href="@{/worker/blog/{id}(id=${blogpost.id})}" th:text="${blogpost.title}">Заголовок статьи</a>
+                    </td>
+                    <td th:text="${blogpost.postDate}">Дата публикации</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <script src="js/jquery-3.3.1.min.js"></script>
+            <script src="js/popper.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/jquery.validate.min.js"></script>
+            <script src="js/main.js"></script>
+        </div>
+    </div>
+    <script src="js/worker/jquery.min.js"></script>
+    <script src="js/worker/popper.js"></script>
+    <script src="js/worker/bootstrap.min.js"></script>
+    <script src="js/worker/main.js"></script>
+    </div>
+</body>
+</html>

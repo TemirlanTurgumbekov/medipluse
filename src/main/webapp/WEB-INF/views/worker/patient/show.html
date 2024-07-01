@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Sidebar 01</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/worker/style.css">
+    <link rel="stylesheet" href="/css/worker/schedule/style.css">
+    <link rel="stylesheet" href="/css/worker/medicalcard/style.css">
+</head>
+<body>
+
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+        <div class="p-4 pt-5">
+            <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(/img/doctors/logo.jpg);"></a>
+            <ul class="list-unstyled components mb-5">
+                <li>
+                    <a href="/worker/edit">Профиль</a>
+                </li>
+                <li>
+                    <a href="/worker">Расписание</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Пациенты</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="/worker/patient/new">Добавить пациента</a>
+                        </li>
+                        <li>
+                            <a href="/worker/patient/list">Посмотреть всех</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#blog" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Блог</a>
+                    <ul class="collapse list-unstyled" id="blog">
+                        <li>
+                            <a href="/worker/blog/new">Добавить статью</a>
+                        </li>
+                        <li>
+                            <a href="/worker/blog/list">Список статей</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/worker/login">Завершить сеанс</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Toggle Menu</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Статус:</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link1" href="#">Сотрудник  |  </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary" href="/worker/patient/new">Добавить пациента</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <form class="contact" th:method="POST" th:action="@{/worker/patient/update}" th:object="${medicalCard}">
+                <h3>Медицинская карта амбулаторно больного</h3>
+                <br>
+                <div class="col50 colleft">
+                    <div class="col50 colleft">
+                        <div class="wd50">
+                            <label name="">ФИО пациента</label>
+                            <input placeholder="Введите ФИО" type="text" required autofocus th:field="*{fullname}">
+                        </div>
+                        <div class="wd50">
+                            <label name="">Дата рождения</label>
+                            <input placeholder="Введите дату" type="date" required th:field="*{dob}">
+                        </div>
+                    </div>
+                    <div class="col50 colright">
+                        <div class="wd50">
+                            <label name="">Номер телефона</label>
+                            <input placeholder="Введите номер телефона" type="tel" required th:field="*{phonenumber}">
+                        </div>
+                    </div>
+                    <!--          <label name="">Дата рождения</label>-->
+                    <!--          <input class="dateofbirth" placeholder="Введите дату" type="date" required>-->
+                </div>
+
+                <div class="col50 colright">
+                    <div class="col50 colleft">
+                        <div class="wd50">
+                            <label name="">ПИН(ИНН)</label>
+                            <input placeholder="Номер ИНН (14 символов)" type="text" required th:field="*{pin}">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="wd100"><hr></div>
+
+                <div class="col50 colleft">
+                    <div class="wd50">
+                        <label name="">Адрес проживания</label>
+                        <input placeholder="Введите адрес" type="text" required th:field="*{address}">
+                    </div>
+                    <div class="wd100">
+                        <label name="">Место службы, работы</label>
+                        <input placeholder="Наименование и характер производства" type="text" required th:field="*{workplace}">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col50 colright">
+                    <div class="wd100">
+                        <label name="">Пол</label>
+                        <select th:field="*{gender}">
+                            <option value=" ">Мужчина</option>
+                            <option value=" ">Женщина</option>
+
+                        </select>
+                    </div>
+                    <div class="wd100">
+                        <label name="">Профессия, должность</label>
+                        <input placeholder="Введите должность" type="text" required th:field="*{profession}">
+                    </div>
+                </div>
+
+                <div class="wd100"><hr></div>
+
+                <!--        <div class="col50 colleft">-->
+                <!--          <div class="wd100">-->
+                <!--            <label name="">Симптомы</label>-->
+                <!--            <textarea placeholder="Введите симптомы пациента..." required></textarea>-->
+                <!--          </div>-->
+                <!--        </div>-->
+
+                <!--        <div class="col50 colright">-->
+                <!--          <div class="wd100">-->
+                <!--            <label name="">Диагноз</label>-->
+                <!--            <textarea placeholder="Введите диагноз пациента..." required></textarea>-->
+                <!--          </div>-->
+                <!--        </div>-->
+
+                <!--        <div class="wd100">-->
+                <!--          <label name="">Лечение</label>-->
+                <!--          <textarea placeholder="Введите текст..." required></textarea>-->
+                <!--        </div>-->
+
+                <div class="wd100">
+                    <button name="submit" type="submit" id="" data-submit="...Sending">Обновить</button>
+                </div>
+            </form>
+
+            <h1>Визиты пациента</h1>
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Доктор</th>
+                    <th scope="col">Дата визита</th>
+                    <th scope="col">Статус</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="patient : ${patients}">
+                    <th scope="row" th:text="${patient.getId()}" >id</th>
+                    <td>
+                        <a th:href="@{/worker/patient/visit/{id}(id=${patient.id})}" th:text="|${patient.doctorName}|">Фамилия Имя</a>
+                    </td>
+                    <td th:text="${patient.visitDate}">Дата визита</td>
+                    <td th:text="${patient.status}">Статус</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="/js/worker/jquery.min.js"></script>
+<script src="/js/worker/popper.js"></script>
+<script src="/js/worker/bootstrap.min.js"></script>
+<script src="/js/worker/main.js"></script>
+</body>
+</html>

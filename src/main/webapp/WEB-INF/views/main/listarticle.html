@@ -1,0 +1,340 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+  <!-- Meta Tags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="Site keywords here">
+  <meta name="description" content="">
+  <meta name='copyright' content=''>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>Статьи</title>
+
+  <style>
+    .p-limited {
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* число строк */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/img/favicon.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Nice Select CSS -->
+  <link rel="stylesheet" href="/css/nice-select.css">
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <!-- icofont CSS -->
+  <link rel="stylesheet" href="/css/icofont.css">
+  <!-- Slicknav -->
+  <link rel="stylesheet" href="/css/slicknav.min.css">
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="/css/owl-carousel.css">
+  <!-- Datepicker CSS -->
+  <link rel="stylesheet" href="/css/datepicker.css">
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="/css/animate.min.css">
+  <!-- Magnific Popup CSS -->
+  <link rel="stylesheet" href="/css/magnific-popup.css">
+
+  <!-- Medipro CSS -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/articles.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+
+</head>
+<body>
+
+<!-- Preloader -->
+<div class="preloader">
+  <div class="loader">
+    <div class="loader-outter"></div>
+    <div class="loader-inner"></div>
+
+    <div class="indicator">
+      <svg width="16px" height="12px">
+        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+      </svg>
+    </div>
+  </div>
+</div>
+<!-- End Preloader -->
+<!-- Header Area -->
+<header class="header" >
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-5 col-12">
+          <!-- Contact -->
+          <ul class="top-link">
+            <li><a href="/contact">О нас</a></li>
+            <li><a href="/doctors">Доктора</a></li>
+            <li><a href="/contact">Контакты</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+          <!-- End Contact -->
+        </div>
+        <div class="col-lg-6 col-md-7 col-12">
+          <!-- Top Contact -->
+          <ul class="top-contact">
+            <li><i class="fa fa-phone"></i>+996(500)-100-200</li>
+            <li><i class="fa fa-envelope"></i><a href="mailto:hospitalmedipluskg@gmail.com">hospitalmedipluskg@gmail.com</a></li>
+          </ul>
+          <!-- End Top Contact -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Topbar -->
+  <!-- Header Inner -->
+  <div class="header-inner">
+    <div class="container">
+      <div class="inner">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-12">
+            <!-- Start Logo -->
+            <div class="logo">
+              <a href="/"><img src="/img/logo.png" alt="#"></a>
+            </div>
+            <!-- End Logo -->
+            <!-- Mobile Nav -->
+            <div class="mobile-nav"></div>
+            <!-- End Mobile Nav -->
+          </div>
+          <div class="col-lg-7 col-md-9 col-12">
+            <!-- Main Menu -->
+            <div class="main-menu">
+              <nav class="navigation">
+                <ul class="nav menu">
+                  <li><a href="/">Главная </a></li>
+                  <li><a href="/doctors">Доктора </a></li>
+                  <li><a href="#">Блоги <i class="icofont-rounded-down"></i></a>
+                    <ul class="dropdown">
+                      <li><a href="/article">Тургумбеков Темирлан</a></li>
+                      <li><a href="blog-single.html">Сидоров Алексей</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="/contact">Связаться с нами</a></li>
+                </ul>
+              </nav>
+            </div>
+            <!--/ End Main Menu -->
+          </div>
+          <div class="col-lg-2 col-12">
+            <div class="get-quote">
+              <p>
+                <a href="/record" class="btn">Записаться на прием</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ End Header Inner -->
+</header>
+<!-- End Header Area -->
+<div class="py-5 bg-light team1">
+  <div class="container">
+    <div class="section-title">
+      <h2>Следите за нашими медицинскими статьями.</h2>
+      <img src="/img/section-img.png" alt="#">
+    </div>
+    <!-- Thymeleaf loop to iterate through articles -->
+    <div class="row">
+      <div th:each="article : ${articles}" class="col-lg-6">
+        <div class="card card-shadow border-0 mb-4">
+          <!-- Row -->
+          <div class="row no-gutters card-shadow">
+            <div class="col-md-5 pro-pic" th:style="|background:url('@{/img/article/{imageName}(imageName=${article.photoUrl})}') no-repeat center center / cover;|">
+              <div class="card-img-overlay">
+                <ul class="list-inline position-relative text-center">
+                  <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-facebook"></i></a></li>
+                  <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-twitter"></i></a></li>
+                  <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i the="icon-social-instagram"></i></a></li>
+                  <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i the="icon-social-behance"></i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-7 bg-white">
+              <div class="p-4">
+                <a th:href="@{/article/{id}(id=${article.id})}"><h6 class="mb-3 font-weight-medium" th:text="${article.title}">Article Title</h6></a>
+                <p class="p-limited" th:text="${article.content}">Article Content</p>
+              </div>
+            </div>
+          </div>
+          <!-- Row -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Each Article Ends -->
+  </div>
+</div>
+
+<!--<div class="row">-->
+<!--  &lt;!&ndash; Итерация по списку статей, по две статьи в ряд &ndash;&gt;-->
+<!--  <div th:each="article : ${articles}" class="col-lg-6">-->
+<!--    <div class="card card-shadow border-0 mb-4">-->
+<!--      &lt;!&ndash; Ряд для каждой статьи &ndash;&gt;-->
+<!--      <div class="row no-gutters">-->
+<!--        <img th:src="@{/img/article/{imageName}(imageName=${article.photoUrl})}" alt="#"/>-->
+<!--        <div class="col-md-7 bg-white">-->
+<!--          <div class="p-4">-->
+<!--            <h6 class="mb-3 font-weight-medium" th:text="${article.title}">Заголовок статьи</h6>-->
+<!--            <p th:text="${article.content}">Краткое описание статьи...</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; Конец ряда &ndash;&gt;-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  &lt;!&ndash; Конец колонки &ndash;&gt;-->
+<!--</div>-->
+<!-- Проверка на завершение строки для двух статей -->
+<!--<div th:if="${iterStat.count % 2 == 0}" class="w-100"></div>-->
+<!-- Конец строки -->
+
+<!-- Footer Area -->
+<footer id="footer" class="footer ">
+  <!-- Footer Top -->
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="single-footer">
+            <h2>О нас</h2>
+            <p>MEDIPLUSE - представляет собой современное медицинское учреждение, оборудованное по последнему слову техники и объединяющее специалистов высокой квалификации. Мы предлагаем широкий спектр медицинских услуг, от первичной диагностики до сложных операций.</p>
+            <!-- Social -->
+            <ul class="social">
+              <li><a href="#"><i class="icofont-facebook"></i></a></li>
+              <li><a href="#"><i class="icofont-instagram"></i></a></li>
+              <li><a href="#"><i class="icofont-telegram"></i></a></li>
+              <li><a href="#"><i class="icofont-whatsapp"></i></a></li>
+              <li><a href="#"><i class="icofont-email"></i></a></li>
+            </ul>
+            <!-- End Social -->
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="single-footer f-link">
+            <h2>Ссылки</h2>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-12">
+                <ul>
+                  <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>На главную</a></li>
+                  <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>О нас</a></li>
+                  <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Статьи</a></li>
+                  <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Врачи</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12">
+                <ul>
+                  <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Консультация</a></li>
+                  <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Отзывы</a></li>
+                  <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
+                  <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Связаться с нами</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="single-footer">
+            <h2>Рабочее время</h2>
+            <p>Вы работаем без выходных и всегда готовы вам помочь</p>
+            <ul class="time-sidual">
+              <li class="day">Понидельник - Пятница <span>8.00-20.00</span></li>
+              <li class="day">Субота <span>9.00-18.30</span></li>
+              <li class="day">Воскресенье <span>9.00-15.00</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="single-footer">
+            <h2>Новости</h2>
+            <p>Подпишитесь на нашу рассылку, чтобы получать все новости на свою электронную почту</p>
+            <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
+              <input name="email" placeholder="Электронный адрес" class="common-input" onfocus="this.placeholder = ''"
+                     onblur="this.placeholder = 'Ваш электронный адрес'" required="" type="email">
+              <button class="button"><i class="icofont icofont-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ End Footer Top -->
+  <!-- Copyright -->
+  <div class="copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-12">
+          <div class="copyright-content">
+            <p>© Разработчик Тургумбеков Т. Н. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ End Copyright -->
+</footer>
+<!--/ End Footer Area -->
+
+<!-- jquery Min JS -->
+<script src="/js/jquery.min.js"></script>
+<!-- jquery Migrate JS -->
+<script src="/js/jquery-migrate-3.0.0.js"></script>
+<!-- jquery Ui JS -->
+<script src="/js/jquery-ui.min.js"></script>
+<!-- Easing JS -->
+<script src="/js/easing.js"></script>
+<!-- Color JS -->
+<script src="/js/colors.js"></script>
+<!-- Popper JS -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap Datepicker JS -->
+<script src="/js/bootstrap-datepicker.js"></script>
+<!-- Jquery Nav JS -->
+<script src="/js/jquery.nav.js"></script>
+<!-- Slicknav JS -->
+<script src="/js/slicknav.min.js"></script>
+<!-- ScrollUp JS -->
+<script src="/js/jquery.scrollUp.min.js"></script>
+<!-- Niceselect JS -->
+<script src="/js/niceselect.js"></script>
+<!-- Tilt Jquery JS -->
+<script src="/js/tilt.jquery.min.js"></script>
+<!-- Owl Carousel JS -->
+<script src="/js/owl-carousel.js"></script>
+<!-- counterup JS -->
+<script src="/js/jquery.counterup.min.js"></script>
+<!-- Steller JS -->
+<script src="/js/steller.js"></script>
+<!-- Wow JS -->
+<script src="/js/wow.min.js"></script>
+<!-- Magnific Popup JS -->
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<!-- Counter Up CDN JS -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- Main JS -->
+<script src="/js/main.js"></script>
+</body>
+</html>
